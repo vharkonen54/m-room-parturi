@@ -3,266 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Room Parturi - Ammattitaitoinen Parturi Kouvolassa</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
-        .cta-box {
-            background: #f0f7ff;
-            border-left: 4px solid #667eea;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-        .cta-box h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px 10px 10px 0;
-            transition: background 0.3s;
-        }
-        .cta-button:hover {
-            background: #5568d3;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .feature {
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        .services {
-            margin: 30px 0;
-        }
-        .service-item {
-            background: #fafafa;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        .service-item h4 {
-            color: #667eea;
-            margin-bottom: 8px;
-        }
-        .testimonial {
-            background: #f9f9f9;
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 4px solid #764ba2;
-            border-radius: 8px;
-            font-style: italic;
-        }
-        .testimonial p {
-            margin-bottom: 10px;
-        }
-        .testimonial .author {
-            font-weight: bold;
-            color: #764ba2;
-            font-style: normal;
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 8px;
-        }
-        .info-item {
-            padding: 10px;
-        }
-        .info-item strong {
-            color: #667eea;
-            display: block;
-            margin-bottom: 5px;
-        }
-        h2 {
-            color: #667eea;
-            margin: 30px 0 20px 0;
-            font-size: 1.8em;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
-        }
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            .container {
-                padding: 10px;
-            }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;line-height:1.7;color:#2d3748;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);overflow-x:hidden;}
+        .container {max-width:1200px;margin:0 auto;padding:20px;}
+
+        .hero {text-align:center;padding:80px 20px;color:white;position:relative;animation:fadeIn 1s ease-in;}
+        .hero h1 {font-size:3.5em;margin-bottom:20px;font-weight:700;text-shadow:2px 2px 20px rgba(0,0,0,0.3);}
+        .hero p {font-size:1.4em;max-width:700px;margin:0 auto 40px;opacity:0.95;font-weight:300;}
+
+        .content-card {background:white;border-radius:30px;padding:60px 40px;box-shadow:0 30px 90px rgba(0,0,0,0.3);margin-top:-40px;position:relative;}
+        .cta-box {background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:40px;border-radius:20px;margin:40px 0;box-shadow:0 15px 40px rgba(102,126,234,0.4);}
+        .cta-box h3 {font-size:2em;margin-bottom:25px;font-weight:600;}
+        .cta-button {display:inline-block;background:white;color:#667eea;padding:18px 40px;text-decoration:none;border-radius:50px;font-weight:600;margin:10px 10px 10px 0;transition:all 0.3s ease;box-shadow:0 8px 20px rgba(0,0,0,0.15);font-size:1.1em;}
+        .cta-button:hover {transform:translateY(-3px) scale(1.05);box-shadow:0 12px 30px rgba(0,0,0,0.25);}
+
+        .features {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin:50px 0;}
+        .feature {padding:35px;background:linear-gradient(135deg,#f6f8fb 0%,#ffffff 100%);border-radius:20px;border:2px solid #e8edf5;position:relative;overflow:hidden;}
+        .feature h3 {color:#667eea;margin-bottom:15px;font-size:1.4em;font-weight:600;}
+        .feature p {color:#4a5568;font-size:1em;line-height:1.8;}
+
+        h2 {color:#2d3748;margin:60px 0 35px 0;font-size:2.5em;font-weight:700;position:relative;padding-bottom:20px;}
+        h2::after {content:'';position:absolute;bottom:0;left:0;width:80px;height:4px;background:linear-gradient(90deg,#667eea 0%,#764ba2 100%);border-radius:2px;}
+
+        .services {margin:40px 0;}
+        .service-item {background:linear-gradient(135deg,#f6f8fb 0%,#ffffff 100%);padding:30px;margin:20px 0;border-radius:15px;border-left:5px solid #667eea;box-shadow:0 5px 15px rgba(0,0,0,0.05);}
+        .service-item h4 {color:#667eea;margin-bottom:12px;font-size:1.5em;font-weight:600;}
+        .service-item p {color:#4a5568;font-size:1.05em;}
+
+        .service-with-image {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:40px 0;}
+        .service-image {border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,0.2);height:400px;}
+        .service-image img {width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
+        .service-image:hover img {transform:scale(1.1);}
+
+        .testimonial {background:linear-gradient(135deg,#faf5ff 0%,#ffffff 100%);padding:35px;margin:25px 0;border-left:5px solid #764ba2;border-radius:15px;font-style:italic;box-shadow:0 5px 20px rgba(118,75,162,0.1);}
+        .testimonial p {margin-bottom:15px;color:#4a5568;font-size:1.1em;}
+        .testimonial .author {font-weight:600;color:#764ba2;font-style:normal;font-size:1.1em;}
+
+        .info-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:30px 0;}
+        .info-item {padding:20px;background:rgba(255,255,255,0.3);border-radius:12px;backdrop-filter:blur(10px);}
+        .info-item strong {display:block;margin-bottom:8px;font-size:1.1em;color:white;}
+        .info-item a {color:white;text-decoration:underline;}
+
+        .final-cta {background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white;padding:50px 40px;border-radius:25px;margin:50px 0;text-align:center;box-shadow:0 20px 50px rgba(245,87,108,0.3);}
+        .final-cta h3 {font-size:2.2em;margin-bottom:30px;font-weight:700;}
+        .final-cta .cta-button {background:white;color:#f5576c;font-size:1.2em;padding:20px 50px;}
+
+        @media(max-width:768px){.hero h1{font-size:2.2em;}.hero p{font-size:1.1em;}.content-card{padding:40px 25px;border-radius:20px;}h2{font-size:1.8em;}.cta-box{padding:30px 20px;}.features{grid-template-columns:1fr;}.service-with-image{grid-template-columns:1fr;}.image-gallery{grid-template-columns:1fr;}.gallery-item{height:250px;}}
     </style>
 </head>
 <body>
+    <div class="hero">
+        <h1>✂️ M Room Parturi Kouvolassa</h1>
+        <p>Tervetuloa ammattitaitoisen parturin luo! Tarvitsetko nopean ja laadukkaan hiustenleikkuun ilman jonotusta? Meillä saat ammattitaitoista palvelua, joka sopii koko perheelle.</p>
+    </div>
+
     <div class="container">
-        <div class="header">
-            <h1>✂️ M Room Parturi Kouvolassa</h1>
-            <p>Tervetuloa ammattitaitoisen parturin luo!</p>
-        </div>
+        <div class="content-card">
+            <div class="cta-box">
+                <h3>📅 Varaa aikasi nyt!</h3>
+                <a href="https://my.mroom.com" class="cta-button">🌐 Varaa aika verkossa</a>
+                <p style="margin-top:25px;font-size:1.2em;opacity:0.95;">
+                    <strong>📍 Kouvolankatu 20, 45100 Kouvola</strong>
+                </p>
+            </div>
 
-        <p style="font-size: 1.1em; margin-bottom: 20px;">
-            Tarvitsetko nopean ja laadukkaan hiustenleikkuun ilman jonotusta? Meillä saat ammattitaitoista palvelua, joka sopii koko perheelle – aikuisille ja lapsille.
-        </p>
+            <!-- Image Gallery (netistä) -->
+            <h2>📸 Ammattitaitoista työtä</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&q=80" alt="Hiustenleikkaus">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Parranhoito">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80" alt="Parturipalvelut">
+                </div>
+            </div>
 
-        <div class="cta-box">
-            <h3>📅 Varaa aikasi nyt!</h3>
-            <a href="https://my.mroom.com" class="cta-button">🌐 Varaa aika verkossa</a><br>
-            <p style="margin-top: 15px;">
-                📍 Kouvolankatu 20, 45100 Kouvola
+            <h2>💙 Miksi valita meidät?</h2>
+            <div class="features">
+                <div class="feature"><h3>✂️ Ei ajanvarausta tarvita</h3><p>Palvelemme ilman ajanvarausta – tule kun sinulle sopii!</p></div>
+                <div class="feature"><h3>⚡ Nopea ja ammattitaitoinen palvelu</h3><p>Arvostamme aikaasi. Saat laadukasta palvelua tehokkaasti.</p></div>
+                <div class="feature"><h3>👨‍👩‍👧‍👦 Sopii koko perheelle</h3><p>Palvelemme miehiä ja poikia kaikenikäisiä.</p></div>
+                <div class="feature"><h3>📅 Helppo saapua</h3><p>Sijaitsemme keskustassa, pysäköinti lähialueella.</p></div>
+                <div class="feature"><h3>⭐ Tyytyväinen asiakas, aina</h3><p>Ammattitaitoiset parturit ja laadukkaat tuotteet.</p></div>
+            </div>
+
+            <h2>✨ Palvelumme</h2>
+            <div class="service-with-image">
+                <div>
+                    <div class="service-item" style="margin:0;">
+                        <h4>Hiustenleikkaus</h4>
+                        <p>Klassinen leikkaus, moderni tyyli tai yksinkertainen siistiminen – toteutamme toiveesi ammattitaidolla.</p>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=80" alt="Hiustenleikkaus palvelu">
+                </div>
+            </div>
+
+            <div class="service-with-image">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&q=80" alt="Parran muotoilu palvelu">
+                </div>
+                <div>
+                    <div class="service-item" style="margin:0;">
+                        <h4>Parran muotoilu</h4>
+                        <p>Siisti parranmuotoilu tai täydellinen ajo – myös veitsirajaus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services">
+                <div class="service-item">
+                    <h4>Lisäpalvelut</h4>
+                    <p>Veitsirajaus, M Face -kasvohoito, K18 Peptide™ -hiustenkorjaushoito</p>
+                </div>
+            </div>
+
+            <p style="margin-top:20px;font-size:1.05em;color:#718096;">
+                <em>Hinnat ja tarkemmat palvelutiedot: <a href="https://mroom.com" style="color:#667eea;text-decoration:none;font-weight:600;">mroom.com</a></em>
             </p>
-        </div>
-
-        <h2>💙 Miksi valita meidät?</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>✂️ Ei ajanvarausta tarvita</h3>
-                <p>Palvelemme ilman ajanvarausta – tule kun sinulle sopii!</p>
-            </div>
-            <div class="feature">
-                <h3>⚡ Nopea ja ammattitaitoinen palvelu</h3>
-                <p>Arvostamme aikaasi. Saat laadukasta palvelua tehokkaasti.</p>
-            </div>
-            <div class="feature">
-                <h3>👨‍👩‍👧‍👦 Sopii koko perheelle</h3>
-                <p>Palvelemme miehiä ja poikia kaikenikäisiä.</p>
-            </div>
-            <div class="feature">
-                <h3>📅 Helppo saapua</h3>
-                <p>Sijaitsemme keskustassa, pysäköinti lähialueella.</p>
-            </div>
-            <div class="feature">
-                <h3>⭐ Tyytyväinen asiakas, aina</h3>
-                <p>Ammattitaitoiset parturit ja laadukkaat tuotteet.</p>
-            </div>
-        </div>
-
-        <h2>✨ Palvelumme</h2>
-        <div class="services">
-            <div class="service-item">
-                <h4>Hiustenleikkaus</h4>
-                <p>Klassinen leikkaus, moderni tyyli tai yksinkertainen siistiminen – toteutamme toiveesi ammattitaidolla.</p>
-            </div>
-            <div class="service-item">
-                <h4>Parran muotoilu</h4>
-                <p>Siisti parranmuotoilu tai täydellinen ajo – myös veitsirajaus.</p>
-            </div>
-            <div class="service-item">
-                <h4>Lisäpalvelut</h4>
-                <p>Veitsirajaus, M Face -kasvohoito, K18 Peptide™ -hiustenkorjaushoito</p>
-            </div>
-        </div>
-        <p style="margin-top: 15px;"><em>Hinnat ja tarkemmat palvelutiedot: <a href="https://mroom.com" style="color: #667eea;">mroom.com</a></em></p>
-
-        <h2>📅 Näin varaat ajan</h2>
-        <div class="service-item">
-            <h4>1. Liity jonoon verkossa (suositeltu)</h4>
-            <p>Käy verkossa ja liity jonoon – näet oman jonotusaikasi!</p>
-            <a href="https://my.mroom.com" class="cta-button">Liity jonoon tästä</a>
-        </div>
-        <div class="service-item">
-            <h4>2. Tule suoraan paikan päälle</h4>
-            <p>📍 Kouvolankatu 20, 45100 Kouvola<br>
-            Palvelemme ilman ajanvarausta!</p>
-        </div>
-        <div class="service-item">
-            <h4>3. Tarkista aukioloajat</h4>
-            <p>Ma-Pe: 10:00 - 18:00<br>
-            La: 09:00 - 17:00<br>
-            Su: Suljettu</p>
-        </div>
-
-        <h2>⭐ Asiakaspalautteet</h2>
-        <div class="testimonial">
-            <p>"Nopea ja ystävällinen palvelu! Aina tyytyväinen lopputulokseen."</p>
-            <p class="author">– Matti, Kouvola</p>
-        </div>
-        <div class="testimonial">
-            <p>"Vihdoin parturi, jossa ei tarvitse jonottaa. Verkossa näkee oman jonoaikansa!"</p>
-            <p class="author">– Laura, Kouvola</p>
-        </div>
-        <div class="testimonial">
-            <p>"Poikani oli aluksi jännittynyt, mutta parturi oli rauhallinen ja ammattitaitoinen. Nyt pojalle pitää päästä uudestaan!"</p>
-            <p class="author">– Sanna, Kouvola</p>
-        </div>
-
-        <h2>🎯 Valmis uuteen tyyliin?</h2>
-        <p style="font-size: 1.1em; margin-bottom: 20px;">
-            Älä odota – tule käymään jo tänään ja koe itse, miksi asiakkaamme palaavat meille kerta toisensa jälkeen!
-        </p>
-
-        <div class="cta-box" style="background: #fff3e0; border-color: #ff9800;">
-            <h3 style="color: #ff9800;">🔥 Tule käymään!</h3>
-            <a href="https://my.mroom.com" class="cta-button" style="background: #ff9800;">→ Liity jonoon tästä</a>
-            
-            <div class="info-grid">
-                <div class="info-item">
-                    <strong>📍 Osoite:</strong>
-                    Kouvolankatu 20, 45100 Kouvola
-                </div>
-                <div class="info-item">
-                    <strong>🕐 Aukioloajat:</strong>
-                    Ma-Pe 10-18<br>
-                    La 9-17<br>
-                    Su suljettu
-                </div>
-                <div class="info-item">
-                    <strong>🌐 Lisätietoja:</strong>
-                    <a href="https://mroom.com" style="color: #ff9800;">mroom.com</a>
-                </div>
-            </div>
-            
-            <p style="margin-top: 20px; text-align: center; font-size: 1.2em;">Tervetuloa asiakkaaksemme! ✂️</p>
         </div>
     </div>
 </body>

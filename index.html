@@ -15,11 +15,11 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1a202c",
-                        secondary: "#2d3748",
+                        primary: "#0a0a0a",
+                        secondary: "#1a1a1a",
                         accent: "#d4af37",
-                        light: "#f7fafc",
-                        dark: "#1a202c"
+                        light: "#f5f5f5",
+                        dark: "#0a0a0a"
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif'],
@@ -30,11 +30,11 @@
                         '144': '36rem'
                     },
                     backgroundImage: {
-                        'barber-pattern': "url('https://picsum.photos/1920/1080?random=6')",
-                        'tools-pattern': "url('https://picsum.photos/1920/1080?random=7')",
-                        'haircut-pattern': "url('https://picsum.photos/1920/1080?random=8')",
-                        'salon-pattern': "url('https://picsum.photos/1920/1080?random=9')",
-                        'style-pattern': "url('https://picsum.photos/1920/1080?random=10')"
+                        'barber-pattern': "url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                        'tools-pattern': "url('https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                        'haircut-pattern': "url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                        'salon-pattern': "url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                        'style-pattern': "url('https://images.unsplash.com/photo-1621605815972-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"
                     }
                 }
             }
@@ -42,36 +42,56 @@
     </script>
     <style>
         .hero-overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7));
         }
         .section-overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7));
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
         }
         .light-overlay {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
         }
         .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        .background-blend {
-            background-blend-mode: overlay;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
         .image-overlay {
-            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
         }
         .dark-image-overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8));
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
+        }
+        .dark-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        .image-hover {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .image-hover:hover {
+            transform: scale(1.05);
+        }
+        .contact-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .phone-link {
+            transition: all 0.3s ease;
+        }
+        .phone-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans text-gray-800 bg-white">
     <!-- Header & Navigation -->
     <header class="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">P</span>
+                    <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center shadow-md">
+                        <span class="text-primary font-bold text-xl">P</span>
                     </div>
                     <span class="text-xl font-bold text-primary">Kouvolan Parturi</span>
                 </div>
@@ -87,7 +107,7 @@
                     <button class="text-sm font-medium text-gray-700 hover:text-accent transition-colors" onclick="toggleLanguage()">
                         <span id="lang-fi">FI</span>/<span id="lang-en" class="text-gray-400">EN</span>
                     </button>
-                    <button class="bg-accent text-white px-6 py-2 rounded-full font-medium hover:bg-yellow-600 transition-colors shadow-md" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
+                    <button class="gold-gradient text-primary px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all shadow-md" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
                         Varaa aika
                     </button>
                 </div>
@@ -95,10 +115,13 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Background Image -->
+    <!-- Hero Section with Premium Dark Barber Shop Image -->
     <section id="etusivu" class="relative min-h-screen flex items-center justify-center pt-16">
         <div class="absolute inset-0">
-            <img src="https://picsum.photos/1920/1080?random=1" alt="Modern barber shop interior with professional equipment" class="w-full h-full object-cover" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Modern barber shop interior with dark atmosphere, professional equipment and leather chairs" 
+                 class="w-full h-full object-cover" 
+                 loading="lazy">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
         
@@ -112,11 +135,11 @@
                 <span class="en-text hidden">Young barber from Kouvola offers modern fade cuts for men and stylish haircuts for women. High quality service at an affordable price.</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-accent text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-600 transition-colors shadow-lg transform hover:scale-105 duration-300" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
+                <button class="gold-gradient text-primary px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all shadow-lg transform hover:scale-105 duration-300" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
                     <span class="fi-text">Varaa aika nyt - 25€</span>
                     <span class="en-text hidden">Book Now - 25€</span>
                 </button>
-                <button class="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-colors border border-white/30" onclick="event.preventDefault(); document.getElementById('palvelut').scrollIntoView({behavior: 'smooth'})">
+                <button class="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all border border-white/30" onclick="event.preventDefault(); document.getElementById('palvelut').scrollIntoView({behavior: 'smooth'})">
                     <span class="fi-text">Katso palvelut</span>
                     <span class="en-text hidden">View Services</span>
                 </button>
@@ -124,9 +147,9 @@
         </div>
     </section>
 
-    <!-- Services Section with Background Images -->
-    <section id="palvelut" class="py-20 relative">
-        <div class="absolute inset-0 bg-tools-pattern bg-cover bg-center bg-no-repeat opacity-10"></div>
+    <!-- Services Section with Professional Barber Images -->
+    <section id="palvelut" class="py-20 relative bg-white">
+        <div class="absolute inset-0 bg-tools-pattern bg-cover bg-center bg-no-repeat opacity-5"></div>
         <div class="relative z-10">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
@@ -142,20 +165,23 @@
                 
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- Men's Services -->
-                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
                         <div class="absolute inset-0">
-                            <img src="https://picsum.photos/800/600?random=2" alt="Professional barber doing fade haircut" class="w-full h-full object-cover" loading="lazy">
-                            <div class="absolute inset-0 section-overlay"></div>
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Professional barber doing precise fade haircut on man in dark barbershop" 
+                                 class="w-full h-full object-cover image-hover" 
+                                 loading="lazy">
+                            <div class="absolute inset-0 section-overlay group-hover:opacity-90 transition-opacity duration-500"></div>
                         </div>
                         <div class="relative z-10 p-8 text-white">
-                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-cut text-2xl"></i>
+                            <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-cut text-2xl text-primary"></i>
                             </div>
                             <h3 class="text-2xl font-serif mb-4">
                                 <span class="fi-text">Miesten leikkaukset</span>
                                 <span class="en-text hidden">Men's Haircuts</span>
                             </h3>
-                            <p class="mb-6">
+                            <p class="mb-6 text-gray-200">
                                 <span class="fi-text">Kaikki fade-leikkaukset ammattitaidolla. Modernit tyylit ja perinteiset tekniikat yhdistettynä.</span>
                                 <span class="en-text hidden">All fade cuts with professional skill. Modern styles combined with traditional techniques.</span>
                             </p>
@@ -180,20 +206,23 @@
                     </div>
                     
                     <!-- Women's Services -->
-                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
                         <div class="absolute inset-0">
-                            <img src="https://picsum.photos/800/600?random=3" alt="Stylist working on women's haircut" class="w-full h-full object-cover" loading="lazy">
-                            <div class="absolute inset-0 section-overlay"></div>
+                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Stylist working on women's haircut in elegant dark salon atmosphere" 
+                                 class="w-full h-full object-cover image-hover" 
+                                 loading="lazy">
+                            <div class="absolute inset-0 section-overlay group-hover:opacity-90 transition-opacity duration-500"></div>
                         </div>
                         <div class="relative z-10 p-8 text-white">
-                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-spa text-2xl"></i>
+                            <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-spa text-2xl text-primary"></i>
                             </div>
                             <h3 class="text-2xl font-serif mb-4">
                                 <span class="fi-text">Naisten kampaukset</span>
                                 <span class="en-text hidden">Women's Haircuts</span>
                             </h3>
-                            <p class="mb-6">
+                            <p class="mb-6 text-gray-200">
                                 <span class="fi-text">Peruskampaukset ja tyylikkäät leikkaukset. Keskiytämme laadukkaaseen lopputulokseen.</span>
                                 <span class="en-text hidden">Basic styling and stylish cuts. We focus on quality results.</span>
                             </p>
@@ -221,32 +250,38 @@
         </div>
     </section>
 
-    <!-- Pricing Section with Background Image -->
+    <!-- Pricing Section with Dark Barbershop Interior -->
     <section id="hinnat" class="py-20 relative">
-        <div class="absolute inset-0 bg-haircut-pattern bg-cover bg-center bg-no-repeat opacity-5"></div>
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Dark barbershop interior with leather chairs and vintage atmosphere" 
+                 class="w-full h-full object-cover" 
+                 loading="lazy">
+            <div class="absolute inset-0 bg-black/80"></div>
+        </div>
         <div class="relative z-10">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif text-primary mb-4">
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">
                         <span class="fi-text">Selkeät hinnat</span>
                         <span class="en-text hidden">Clear Pricing</span>
                     </h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">
+                    <p class="text-gray-300 max-w-2xl mx-auto">
                         <span class="fi-text">Yksi hinta kaikille palveluille - ei yllätyksiä</span>
                         <span class="en-text hidden">One price for all services - no surprises</span>
                     </p>
                 </div>
                 
                 <div class="max-w-md mx-auto">
-                    <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden">
-                        <div class="absolute inset-0 bg-salon-pattern bg-cover bg-center opacity-10"></div>
+                    <div class="dark-gradient rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden border border-gray-800">
+                        <div class="absolute inset-0 bg-saloon-pattern bg-cover bg-center opacity-10"></div>
                         <div class="relative z-10">
                             <div class="text-accent text-sm font-semibold uppercase tracking-wider mb-2">
                                 <span class="fi-text">Koko valikoima</span>
                                 <span class="en-text hidden">Full range</span>
                             </div>
                             <div class="text-5xl font-bold text-white mb-2">25€</div>
-                            <div class="text-gray-300 mb-6">
+                            <div class="text-gray-400 mb-6">
                                 <span class="fi-text">sisältäen ALV 0%</span>
                                 <span class="en-text hidden">including 0% VAT</span>
                             </div>
@@ -274,7 +309,7 @@
                                 </div>
                             </div>
                             
-                            <button class="w-full bg-accent text-white py-4 rounded-full text-lg font-semibold hover:bg-yellow-600 transition-colors shadow-lg transform hover:scale-105 duration-300 relative z-20" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
+                            <button class="w-full gold-gradient text-primary py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all shadow-lg transform hover:scale-105 duration-300 relative z-20" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
                                 <span class="fi-text">Varaa aika nyt</span>
                                 <span class="en-text hidden">Book Appointment</span>
                             </button>
@@ -285,75 +320,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us with Background Images -->
-    <section class="py-20 relative">
-        <div class="absolute inset-0 bg-style-pattern bg-cover bg-center bg-no-repeat opacity-5"></div>
-        <div class="relative z-10">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif text-primary mb-4">
-                        <span class="fi-text">Miksi valita meidät?</span>
-                        <span class="en-text hidden">Why Choose Us?</span>
-                    </h2>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                        <div class="absolute inset-0 bg-barber-pattern bg-cover bg-center opacity-5"></div>
-                        <div class="relative z-10">
-                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-user-tie text-accent text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-4">
-                                <span class="fi-text">Nuori yrittäjä</span>
-                                <span class="en-text hidden">Young Entrepreneur</span>
-                            </h3>
-                            <p class="text-gray-600">
-                                <span class="fi-text">Intohimosta ammattiin - nuori kouvolalainen yrittäjä, joka panostaa jokaisen asiakkaan tyytyväisyyteen.</span>
-                                <span class="en-text hidden">From passion to profession - young entrepreneur from Kouvola who cares about every customer's satisfaction.</span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tools-pattern bg-cover bg-center opacity-5"></div>
-                        <div class="relative z-10">
-                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-euro-sign text-accent text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-4">
-                                <span class="fi-text">Edullinen hinta</span>
-                                <span class="en-text hidden">Affordable Price</span>
-                            </h3>
-                            <p class="text-gray-600">
-                                <span class="fi-text">Korkealaatuinen palvelu edulliseen hintaan. Kaikki leikkaukset 25€ ilman piilotettuja kuluja.</span>
-                                <span class="en-text hidden">High quality service at an affordable price. All haircuts 25€ with no hidden costs.</span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                        <div class="absolute inset-0 bg-haircut-pattern bg-cover bg-center opacity-5"></div>
-                        <div class="relative z-10">
-                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-map-marker-alt text-accent text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-4">
-                                <span class="fi-text">Keskeinen sijainti</span>
-                                <span class="en-text hidden">Central Location</span>
-                            </h3>
-                            <p class="text-gray-600">
-                                <span class="fi-text">Sijaitsee helposti saatavilla Eräpolku 12:ssa Kouvolassa. Ilmainen pysäköinti saatavilla.</span>
-                                <span class="en-text hidden">Located at Eräpolku 12 in Kouvola with easy access. Free parking available.</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section with Haircut Images -->
+    <!-- Gallery Section with Professional Haircut Images -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -368,10 +335,13 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="relative rounded-xl overflow-hidden shadow-lg group">
-                    <img src="https://picsum.photos/400/500?random=11" alt="Modern fade haircut example" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1621605815972-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Professional barber doing fade haircut in dark atmosphere" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" 
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                         <h3 class="font-semibold">
                             <span class="fi-text">Moderni fade</span>
                             <span class="en-text hidden">Modern fade</span>
@@ -379,10 +349,13 @@
                     </div>
                 </div>
                 
-                <div class="relative rounded-xl overflow-hidden shadow-lg group">
-                    <img src="https://picsum.photos/400/500?random=12" alt="Classic men's haircut" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Classic men's haircut with precise lines" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" 
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                         <h3 class="font-semibold">
                             <span class="fi-text">Klassinen leikkaus</span>
                             <span class="en-text hidden">Classic cut</span>
@@ -390,10 +363,13 @@
                     </div>
                 </div>
                 
-                <div class="relative rounded-xl overflow-hidden shadow-lg group">
-                    <img src="https://picsum.photos/400/500?random=13" alt="Women's stylish haircut" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Women's stylish haircut in elegant salon" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" 
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                         <h3 class="font-semibold">
                             <span class="fi-text">Naisten kampaus</span>
                             <span class="en-text hidden">Women's styling</span>
@@ -401,10 +377,13 @@
                     </div>
                 </div>
                 
-                <div class="relative rounded-xl overflow-hidden shadow-lg group">
-                    <img src="https://picsum.photos/400/500?random=14" alt="Professional barber tools" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Professional barber tools on dark leather surface" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" 
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                         <h3 class="font-semibold">
                             <span class="fi-text">Ammattilaisvälineet</span>
                             <span class="en-text hidden">Professional tools</span>
@@ -415,11 +394,14 @@
         </div>
     </section>
 
-    <!-- Booking Section -->
+    <!-- Booking Section with Barber Shop Atmosphere -->
     <section id="varaa-aika" class="relative py-20">
         <div class="absolute inset-0">
-            <img src="https://picsum.photos/1920/800?random=4" alt="Barber tools and equipment" class="w-full h-full object-cover" loading="lazy">
-            <div class="absolute inset-0 bg-black/70"></div>
+            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Barber shop atmosphere with warm lighting and vintage decor" 
+                 class="w-full h-full object-cover" 
+                 loading="lazy">
+            <div class="absolute inset-0 bg-black/80"></div>
         </div>
         
         <div class="relative z-10 container mx-auto px-4">
@@ -480,7 +462,7 @@
                         <input type="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
                     </div>
                     
-                    <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition-colors shadow-lg">
+                    <button type="submit" class="w-full gold-gradient text-primary py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all shadow-lg">
                         <span class="fi-text">Varaa aika - 25€</span>
                         <span class="en-text hidden">Book Appointment - 25€</span>
                     </button>
@@ -494,7 +476,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Improved Layout -->
     <section id="yhteystiedot" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -502,92 +484,134 @@
                     <span class="fi-text">Yhteystiedot</span>
                     <span class="en-text hidden">Contact Information</span>
                 </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    <span class="fi-text">Ota yhteyttä tai tule käymään parturiliikkeessämme</span>
+                    <span class="en-text hidden">Contact us or visit our barber shop</span>
+                </p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <div class="bg-light p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                        <div class="absolute inset-0 bg-barber-pattern bg-cover bg-center opacity-5"></div>
-                        <div class="relative z-10">
-                            <h3 class="text-2xl font-serif text-primary mb-6">
-                                <span class="fi-text">Tiedot</span>
-                                <span class="en-text hidden">Details</span>
-                            </h3>
-                            
-                            <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-map-marker-alt text-accent"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-700 mb-1">
-                                            <span class="fi-text">Osoite</span>
-                                            <span class="en-text hidden">Address</span>
-                                        </h4>
-                                        <p class="text-gray-600">Eräpolku 12<br>45100 Kouvola</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-clock text-accent"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-700 mb-1">
-                                            <span class="fi-text">Aukioloajat</span>
-                                            <span class="en-text hidden">Opening Hours</span>
-                                        </h4>
-                                        <div class="text-gray-600 space-y-1">
-                                            <p>Ma-Pe: 9:00 - 18:00</p>
-                                            <p>La: 10:00 - 16:00</p>
-                                            <p>Su: Suljettu</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-phone text-accent"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-700 mb-1">
-                                            <span class="fi-text">Puhelin</span>
-                                            <span class="en-text hidden">Phone</span>
-                                        </h4>
-                                        <p class="text-gray-600">+358 40 123 4567</p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Contact Card 1: Phone -->
+                <div class="contact-card rounded-2xl p-8 shadow-xl relative overflow-hidden border border-gray-100">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 gold-gradient rounded-full opacity-20"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto">
+                            <i class="fas fa-phone text-2xl text-primary"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-primary mb-4 text-center">
+                            <span class="fi-text">Soita meille</span>
+                            <span class="en-text hidden">Call Us</span>
+                        </h3>
+                        <div class="text-center mb-6">
+                            <a href="tel:+358451577669" class="phone-link inline-block gold-gradient text-primary px-8 py-4 rounded-full text-xl font-bold hover:shadow-xl transition-all shadow-lg">
+                                045 157 7669
+                            </a>
+                        </div>
+                        <p class="text-gray-600 text-center">
+                            <span class="fi-text">Soita varaukseen tai kyselyihin. Vastaamme arkisin klo 9-18.</span>
+                            <span class="en-text hidden">Call for bookings or inquiries. We answer weekdays 9AM-6PM.</span>
+                        </p>
                     </div>
                 </div>
                 
-                <div class="relative rounded-2xl overflow-hidden shadow-xl">
-                    <img src="https://picsum.photos/800/600?random=5" alt="Barber shop location exterior" class="w-full h-full object-cover" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                        <h3 class="text-2xl font-serif mb-2">
-                            <span class="fi-text">Tervetuloa käymään</span>
-                            <span class="en-text hidden">Welcome to Visit</span>
+                <!-- Contact Card 2: Address -->
+                <div class="contact-card rounded-2xl p-8 shadow-xl relative overflow-hidden border border-gray-100">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 gold-gradient rounded-full opacity-20"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto">
+                            <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif text-primary mb-4 text-center">
+                            <span class="fi-text">Osoite</span>
+                            <span class="en-text hidden">Address</span>
                         </h3>
-                        <p class="text-gray-200">
-                            <span class="fi-text">Helppo saapuminen ja ilmainen pysäköinti. Tule tutustumaan moderniin parturiliikkeeseemme.</span>
-                            <span class="en-text hidden">Easy access and free parking. Come visit our modern barber shop.</span>
+                        <div class="text-center mb-6">
+                            <p class="text-gray-800 text-lg font-medium leading-relaxed">
+                                Eräpolku 12<br>
+                                45100 Kouvola
+                            </p>
+                        </div>
+                        <p class="text-gray-600 text-center">
+                            <span class="fi-text">Helppo saapuminen ja ilmainen pysäköinti. Tervetuloa!</span>
+                            <span class="en-text hidden">Easy access and free parking. Welcome!</span>
                         </p>
                     </div>
+                </div>
+                
+                <!-- Contact Card 3: Hours -->
+                <div class="contact-card rounded-2xl p-8 shadow-xl relative overflow-hidden border border-gray-100">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 gold-gradient rounded-full opacity-20"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto">
+                            <i class="fas fa-clock text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif text-primary mb-4 text-center">
+                            <span class="fi-text">Aukioloajat</span>
+                            <span class="en-text hidden">Opening Hours</span>
+                        </h3>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-700 font-medium">
+                                    <span class="fi-text">Ma-Pe</span>
+                                    <span class="en-text hidden">Mon-Fri</span>
+                                </span>
+                                <span class="text-gray-800 font-semibold">9:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-700 font-medium">
+                                    <span class="fi-text">Lauantai</span>
+                                    <span class="en-text hidden">Saturday</span>
+                                </span>
+                                <span class="text-gray-800 font-semibold">10:00 - 16:00</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-gray-700 font-medium">
+                                    <span class="fi-text">Sunnuntai</span>
+                                    <span class="en-text hidden">Sunday</span>
+                                </span>
+                                <span class="text-gray-800 font-semibold">
+                                    <span class="fi-text">Suljettu</span>
+                                    <span class="en-text hidden">Closed</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-center text-sm">
+                            <span class="fi-text">Varatut ajat saatavilla myös ilta-aikoina</span>
+                            <span class="en-text hidden">Booked appointments available in evenings</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map/Image Section -->
+            <div class="mt-12 relative rounded-2xl overflow-hidden shadow-xl group">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                     alt="Barber shop location with vintage decor and warm lighting" 
+                     class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700" 
+                     loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <h3 class="text-2xl font-serif mb-2">
+                        <span class="fi-text">Tervetuloa käymään</span>
+                        <span class="en-text hidden">Welcome to Visit</span>
+                    </h3>
+                    <p class="text-gray-200">
+                        <span class="fi-text">Löydät meidät helposti Kouvolan keskustasta. Ilmainen pysäköinti saatavilla.</span>
+                        <span class="en-text hidden">Find us easily from Kouvola city center. Free parking available.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-12">
+    <footer class="dark-gradient text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-8 md:mb-0">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">P</span>
+                        <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-primary font-bold text-xl">P</span>
                         </div>
                         <span class="text-xl font-bold">Kouvolan Parturi</span>
                     </div>
@@ -597,10 +621,29 @@
                     </p>
                 </div>
                 
-                <div class="text-center md:text-right">
-                    <p class="text-gray-300 mb-2">Eräpolku 12, 45100 Kouvola</p>
-                    <p class="text-gray-300 mb-4">+358 40 123 4567</p>
-                    <div class="flex space-x-4 justify-center md:justify-end">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="fi-text">Yhteystiedot</span>
+                        <span class="en-text hidden">Contact</span>
+                    </h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-300">Eräpolku 12, 45100 Kouvola</p>
+                        <a href="tel:+358451577669" class="text-gray-300 hover:text-accent transition-colors block">
+                            045 157 7669
+                        </a>
+                        <p class="text-gray-300">
+                            <span class="fi-text">Ma-Pe: 9:00 - 18:00</span>
+                            <span class="en-text hidden">Mon-Fri: 9:00 - 18:00</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="fi-text">Seuraa meitä</span>
+                        <span class="en-text hidden">Follow Us</span>
+                    </h4>
+                    <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -611,7 +654,7 @@
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
                 <p>
                     <span class="fi-text">© 2024 Kouvolan Parturi. Kaikki oikeudet pidätetään.</span>
                     <span class="en-text hidden">© 2024 Kouvola Barber. All rights reserved.</span>
@@ -698,16 +741,35 @@
         // Preload background images for better performance
         window.addEventListener('load', function() {
             const imageUrls = [
-                'https://picsum.photos/1920/1080?random=6',
-                'https://picsum.photos/1920/1080?random=7',
-                'https://picsum.photos/1920/1080?random=8',
-                'https://picsum.photos/1920/1080?random=9',
-                'https://picsum.photos/1920/1080?random=10'
+                'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                'https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                'https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                'https://images.unsplash.com/photo-1621605815972-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
             ];
             
             imageUrls.forEach(url => {
                 const img = new Image();
                 img.src = url;
+            });
+        });
+
+        // Phone number formatting and click-to-call
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const isEnglish = document.querySelector('.fi-text').classList.contains('hidden');
+                    if (isEnglish) {
+                        if (!confirm("Do you want to call 045 157 7669?")) {
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (!confirm("Haluatko soittaa numeroon 045 157 7669?")) {
+                            e.preventDefault();
+                        }
+                    }
+                });
             });
         });
     </script>

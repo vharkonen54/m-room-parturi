@@ -1,161 +1,147 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kouvolan Parturi | Ammattitaitoista hiustenleikkausta</title>
-    <meta name="description" content="Nuori kouvolalainen parturi tarjoaa fade-leikkauksia miehille ja peruskampauksia naisille. Leikkaus 25€ ALV 0%.">
+    <title>Kouvolan Parturi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Säilytetään alkuperäiset tyylit */
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
         .hero-overlay { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)); }
         .section-overlay { background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.8)); }
-        .light-overlay { background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.98)); }
-        .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-        .image-overlay { background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.95)); }
-        .dark-image-overlay { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)); }
-        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%); }
-        .dark-gradient { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); }
         .image-hover { transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
         .image-hover:hover { transform: scale(1.05); }
-        .contact-card { background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.98) 100%); backdrop-filter: blur(10px); }
-        .phone-link { transition: all 0.3s ease; }
-        .phone-link:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212,175,55,0.3); }
+        .gold-gradient { background: linear-gradient(135deg,#d4af37,#ffd700); }
+        .text-primary { color: #d4af37; }
+        .accent { color: #ffd700; }
+        .contact-card { background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98)); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-white">
+<body class="bg-white text-gray-800">
 
-    <!-- Header & Navigation -->
-    <header class="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center shadow-md">
-                        <span class="text-primary font-bold text-xl">P</span>
-                    </div>
-                    <span class="text-xl font-bold text-primary">Kouvolan Parturi</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#etusivu" class="text-gray-700 hover:text-accent transition-colors font-medium">Etusivu</a>
-                    <a href="#palvelut" class="text-gray-700 hover:text-accent transition-colors font-medium">Palvelut</a>
-                    <a href="#hinnat" class="text-gray-700 hover:text-accent transition-colors font-medium">Hinnat</a>
-                    <a href="#yhteystiedot" class="text-gray-700 hover:text-accent transition-colors font-medium">Yhteystiedot</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button class="text-sm font-medium text-gray-700 hover:text-accent transition-colors" onclick="toggleLanguage()">
-                        <span id="lang-fi">FI</span>/<span id="lang-en" class="text-gray-400">EN</span>
-                    </button>
-                    <button class="gold-gradient text-primary px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all shadow-md" onclick="event.preventDefault(); document.getElementById('varaa-aika').scrollIntoView({behavior: 'smooth'})">
-                        Varaa aika
-                    </button>
+<!-- Header -->
+<header class="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center shadow-md">
+                <span class="text-primary font-bold text-xl">P</span>
+            </div>
+            <span class="text-xl font-bold text-primary">Kouvolan Parturi</span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#etusivu" class="text-gray-700 hover:text-accent font-medium">Etusivu</a>
+            <a href="#palvelut" class="text-gray-700 hover:text-accent font-medium">Palvelut</a>
+            <a href="#hinnat" class="text-gray-700 hover:text-accent font-medium">Hinnat</a>
+            <a href="#yhteystiedot" class="text-gray-700 hover:text-accent font-medium">Yhteystiedot</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="gold-gradient text-primary px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all shadow-md" onclick="document.getElementById('varaa-aika').scrollIntoView({behavior:'smooth'})">Varaa aika</button>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section id="etusivu" class="relative min-h-screen flex items-center justify-center pt-16">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Barber interior">
+        <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+    <div class="relative z-10 container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6">Ammattitaitoista hiustenleikkausta</h1>
+        <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">Nuori kouvolalainen parturi tarjoaa moderneja fade-leikkauksia miehille ja tyylikkäitä kampauksia naisille.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="gold-gradient text-primary px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all shadow-lg transform hover:scale-105 duration-300" onclick="document.getElementById('varaa-aika').scrollIntoView({behavior:'smooth'})">Varaa aika nyt - 25€</button>
+            <button class="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all border border-white/30" onclick="document.getElementById('palvelut').scrollIntoView({behavior:'smooth'})">Katso palvelut</button>
+        </div>
+    </div>
+</section>
+
+<!-- Palvelut -->
+<section id="palvelut" class="py-20 relative bg-white">
+    <div class="relative z-10 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif text-primary mb-4">Palvelumme</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Tarjoamme selkeät ja korkealaatuiset palvelut ilman turhia lisäpalveluita</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover image-hover" alt="Men's haircut">
+                <div class="absolute inset-0 section-overlay group-hover:opacity-90 transition-opacity duration-500"></div>
+                <div class="relative z-10 p-8 text-white">
+                    <h3 class="text-2xl font-serif mb-4">Miesten leikkaukset</h3>
+                    <p class="mb-6 text-gray-200">Kaikki fade-leikkaukset ammattitaidolla.</p>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="etusivu" class="relative min-h-screen flex items-center justify-center pt-16">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Barber shop" class="w-full h-full object-cover">
-            <div class="absolute inset-0 hero-overlay"></div>
-        </div>
-        <div class="relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6 text-shadow">Ammattitaitoista hiustenleikkausta Kouvolassa</h1>
-            <button class="gold-gradient text-primary px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all shadow-lg" onclick="document.getElementById('varaa-aika').scrollIntoView({behavior:'smooth'})">Varaa aika nyt - 25€</button>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="varaa-aika" class="relative py-20">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/80"></div>
-        </div>
-        <div class="relative z-10 container mx-auto px-4">
-            <div class="max-w-2xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
-                <h2 class="text-3xl md:text-4xl font-serif text-primary mb-6 text-center">Varaa aika</h2>
-                <form id="booking-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-gray-700 mb-2">Nimi</label>
-                            <input type="text" name="Nimi" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2">Puhelinnumero</label>
-                            <input type="tel" name="Puhelinnumero" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Sähköposti</label>
-                        <input type="email" name="Sahkoposti" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Palvelu</label>
-                        <select name="Palvelu" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                            <option value="Miehen leikkaus (fade)">Miehen leikkaus (fade)</option>
-                            <option value="Naisten kampaus">Naisten kampaus</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Päivämäärä</label>
-                        <input type="date" name="Paivamaara" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                    </div>
-                    <button type="submit" class="w-full gold-gradient text-primary py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all shadow-lg">Varaa aika - 25€</button>
-                    <p class="text-center text-gray-600 text-sm mt-2">Vahvistamme varauksesi puhelimitse. Peruutusaika 24h ennen aikaa.</p>
-                </form>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover image-hover" alt="Women's haircut">
+                <div class="absolute inset-0 section-overlay group-hover:opacity-90 transition-opacity duration-500"></div>
+                <div class="relative z-10 p-8 text-white">
+                    <h3 class="text-2xl font-serif mb-4">Naisten kampaukset</h3>
+                    <p class="mb-6 text-gray-200">Peruskampaukset ja tyylikkäät leikkaukset.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="dark-gradient text-white py-12 text-center">
-        <p>© 2024 Kouvolan Parturi. Kaikki oikeudet pidätetään.</p>
-    </footer>
+<!-- Hinnat -->
+<section id="hinnat" class="py-20 relative">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/80"></div>
+    </div>
+    <div class="relative z-10 container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">Selkeät hinnat</h2>
+        <div class="max-w-md mx-auto rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden border border-gray-800 bg-white/5 backdrop-blur-sm">
+            <div class="text-5xl font-bold text-white mb-2">25€</div>
+            <button class="w-full gold-gradient text-primary py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all shadow-lg" onclick="document.getElementById('varaa-aika').scrollIntoView({behavior:'smooth'})">Varaa aika</button>
+        </div>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwq2NzTVj0U3pv5dUKOdU_jwB7wRxaprv26eFHp8GfefL-Lhe75Ow-FGzxjUw8bt1USxw/exec";
+<!-- Varaa Aika -->
+<section id="varaa-aika" class="py-20 relative">
+    <div class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto contact-card p-8 rounded-2xl shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-serif text-primary mb-6 text-center">Varaa aika</h2>
+            <form id="booking-form" class="space-y-6">
+                <input type="text" name="Nimi" placeholder="Nimi" required class="w-full px-4 py-3 border rounded-lg">
+                <input type="tel" name="Puhelinnumero" placeholder="Puhelinnumero" required class="w-full px-4 py-3 border rounded-lg">
+                <input type="email" name="Sahkoposti" placeholder="Sähköposti" required class="w-full px-4 py-3 border rounded-lg">
+                <select name="Palvelu" class="w-full px-4 py-3 border rounded-lg">
+                    <option value="Miehen leikkaus (fade)">Miehen leikkaus (fade)</option>
+                    <option value="Naisten kampaus">Naisten kampaus</option>
+                </select>
+                <input type="date" name="Paivamaara" required class="w-full px-4 py-3 border rounded-lg">
+                <button type="submit" class="w-full gold-gradient text-primary py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all shadow-lg">Varaa aika - 25€</button>
+                <p class="text-center text-gray-600 text-sm">Vahvistamme varauksesi puhelimitse. Peruutusaika 24h ennen aikaa.</p>
+            </form>
+            <p id="booking-message" class="text-center mt-4 font-semibold text-green-600"></p>
+        </div>
+    </div>
+</section>
 
-    // Booking form submit
-    document.getElementById('booking-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const submitButton = form.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.textContent = "Lähetetään...";
+<script>
+document.getElementById('booking-form').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'; // Vaihda omaan scriptiin
 
-        fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            body: formData
-        })
-        .then(response => {
-            if(response.ok){
-                const message = document.createElement('p');
-                message.className = "text-center text-green-600 mt-4 font-semibold";
-                message.textContent = "Kiitos! Varaa aika on vastaanotettu. Otamme sinuun yhteyttä pian.";
-                form.appendChild(message);
-                form.reset();
-            } else {
-                alert("Lähetys epäonnistui. Yritä uudelleen.");
-            }
-        })
-        .catch(err => {
-            console.error(err);
-            alert("Tapahtui virhe. Yritä myöhemmin uudelleen.");
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = "Varaa aika - 25€";
-        });
-    });
-    </script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    try {
+        const response = await fetch(url, { method: 'POST', body: data });
+        if(response.ok){
+            document.getElementById('booking-message').textContent = "Kiitos! Varaus vastaanotettu.";
+            form.reset();
+        } else {
+            document.getElementById('booking-message').textContent = "Virhe! Yritä myöhemmin.";
+        }
+    } catch(err){
+        document.getElementById('booking-message').textContent = "Virhe! Tarkista internet-yhteys.";
+    }
+});
+</script>
 </body>
 </html>

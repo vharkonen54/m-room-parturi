@@ -133,12 +133,15 @@ export default function Home() {
                 <span className={!isEnglish ? 'text-gray-700' : 'text-gray-400'}>FI</span>/
                 <span className={isEnglish ? 'text-gray-700' : 'text-gray-400'}>EN</span>
               </button>
-              <Button
-                onClick={() => scrollToSection('varaa-aika')}
-                className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black hover:shadow-lg"
+              <a
+                href="https://script.google.com/macros/s/AKfycbwv1x6aTgcySCwKcXUpiq_YPUyTXyYlN72SnYmASwt5gsmdrCdtNGB6x2zvY54Ks7rfug/exec"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {isEnglish ? 'Book Now' : 'Varaa aika'}
-              </Button>
+                <Button className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black hover:shadow-lg">
+                  {isEnglish ? 'Book Now' : 'Varaa aika'}
+                </Button>
+              </a>
             </div>
           </div>
         </nav>
@@ -165,13 +168,18 @@ export default function Home() {
               : 'Nuori kouvolalainen parturi tarjoaa moderneja fade-leikkauksia miehille ja tyylikkäitä kampauksia naisille. Korkealaatuista palvelua edulliseen hintaan.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={() => scrollToSection('varaa-aika')}
-              size="lg"
-              className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black hover:shadow-xl text-lg font-semibold"
+            <a
+              href="https://script.google.com/macros/s/AKfycbwv1x6aTgcySCwKcXUpiq_YPUyTXyYlN72SnYmASwt5gsmdrCdtNGB6x2zvY54Ks7rfug/exec"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {isEnglish ? 'Book Now - 25€' : 'Varaa aika nyt - 25€'}
-            </Button>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black hover:shadow-xl text-lg font-semibold"
+              >
+                {isEnglish ? 'Book Now - 25€' : 'Varaa aika nyt - 25€'}
+              </Button>
+            </a>
             <Button
               onClick={() => scrollToSection('palvelut')}
               size="lg"
